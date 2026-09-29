@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <title>PT Sukses Adi Surya</title>
+
+  <!-- Favicon Castrol -->
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .iframe-container {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+
+    .loader {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      color: #666;
+      font-size: 14px;
+      z-index: 1;
+    }
+
+    .loader.hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="iframe-container">
+
+    <div class="loader" id="loader">
+      Loading...
+    </div>
+
+    <iframe
+      id="appFrame"
+      src="https://script.google.com/macros/s/AKfycbwZHD6DhhUjweqk8CgIrj81hMQOZOp2glKfa0C8hkpOsMdxwT8X8EDSTkcTUiY6oOzZ/exec"
+      title="Castrol"
+      allow="fullscreen"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+  <script>
+    const iframe = document.getElementById("appFrame");
+    const loader = document.getElementById("loader");
+
+    /*
+     * Hanya menyembunyikan loader setelah iframe selesai.
+     *
+     * Tidak ada:
+     * - reload()
+     * - location.href
+     * - localStorage
+     * - sessionStorage
+     * - cookie manipulation
+     * - postMessage
+     *
+     * sehingga session/login Web App tetap ditangani
+     * sepenuhnya oleh Google Apps Script.
+     */
+    iframe.addEventListener("load", function () {
+      loader.classList.add("hidden");
+    });
+  </script>
+
+</body>
+</html>
